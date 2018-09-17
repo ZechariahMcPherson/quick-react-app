@@ -1,30 +1,21 @@
-/*​
-import React from 'react';
-
-class App extends React.Component
-{
-  <div>
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
-  </div>
-)
-​
-export default App
-*/
-
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Starwars from "./homeComponents/Starwars.component.js";
+
+import Button from "./sharedComponents/Button/Button.component.js";
 
 export default class App extends Component {
+
+  callStarwarsApi()
+  {
+    return <Starwars />;
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Hello world</h1>
-        </header>
+
+        <Button text="Call Starwars Api" callback={this.callStarwarsApi.bind(this)} />
 
       </div>
     );

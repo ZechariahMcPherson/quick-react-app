@@ -1,5 +1,3 @@
-
-/*
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -36,5 +34,3 @@ Starwars.PropTypes =
 
 
 export default Starwars;
-
-*/

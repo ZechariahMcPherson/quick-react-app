@@ -1,7 +1,7 @@
-import React, { Component } froAm 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import _ from 'underscore';
+import _ from 'lodash';
 
 import "./Button.css";
 
@@ -11,13 +11,12 @@ class Button extends Component {
   {
     super(props);
 
-    this.state({
+    this.state = ({
       text: this.props.text,
       callback: this.props.callback,
       key: _.isNil(this.props.key) ? Math.random : this.props.key
     });
 
-    this.callSwampi = this.callSwampi.bind(this);
 
   }
 
@@ -25,7 +24,7 @@ class Button extends Component {
     return (
       <div className="button-wrapper">
 
-        <input type="button" value={this.state.text} onClick={this.state.callback)} />
+        <input type="button" value={this.state.text} onClick={this.state.callback} />
 
       </div>
     );
