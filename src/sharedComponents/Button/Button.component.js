@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import _ from 'lodash';
 
-import "./Button.css";
+import "./Button.Component.css";
 
 class Button extends Component {
 
@@ -14,7 +14,7 @@ class Button extends Component {
     this.state = ({
       text: this.props.text,
       callback: this.props.callback,
-      key: _.isNil(this.props.key) ? Math.random : this.props.key
+      key: _.isUndefined(this.props.key) ? Math.random : this.props.key
     });
 
 
@@ -24,7 +24,7 @@ class Button extends Component {
     return (
       <div className="button-wrapper">
 
-        <input type="button" value={this.state.text} onClick={this.state.callback} />
+        <input type="button" value={this.state.text} onClick={ this.state.callback} />
 
       </div>
     );

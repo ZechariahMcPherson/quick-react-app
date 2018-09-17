@@ -1,15 +1,17 @@
 
 //todo deal with failed apis
 
-export default function homeComponent(state = 0, action) {
+export default function homeComponentReducer(state = [], action) {
   switch (action.type) {
     case 'GET_STARWARS_SUCCESSS':
-    return({
-        starwarsApiData: this.action.name
-      });
+    return(
+        {
+          starWarsApiData: null
+        }
+      );
     case 'GET_STARWARS_FAILED':
     return({
-        starwarsApiData: null
+        starWarsApiData: null
       });
     default:
       return state

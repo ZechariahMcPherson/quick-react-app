@@ -11,13 +11,15 @@ import _ from 'underscore';
   todo rewrite for handling missing or incorrect param
   currently only handles happy path
 */
-export default function api(argsDict)
+export function api(argsDict)
 {
+
+  console.log('axios api called');
 
   //enures that methodType is in lower case
   const methodTypeFormated = argsDict['methodType'].toLowerCase();
 
-  let axiosSend =
+  var axiosSend =
   ({
     method: methodTypeFormated,
 
@@ -52,6 +54,18 @@ export default function api(argsDict)
   */
 
 
-  return axios(axiosSend);
+  return axios(axiosSend).then(result => console.log('Inside result:', result))
+
+    //impliment later
+    //.catch(error => console.error('(2) Inside error:', error))
+
+}
+
+export function apiGet(url)
+{
+  return axios.get(url).then(result => console.log('Inside result:', result))
+
+    //impliment later
+    //.catch(error => console.error('(2) Inside error:', error))
 
 }
