@@ -25,7 +25,7 @@ class Button extends Component {
     return (
       <div className="button-wrapper">
 
-        <input type="button" value={this.state.text} onClick={this.state.callback} />
+        <input type="button" value={this.state.text} onClick={this.state.callback)} />
 
       </div>
     );

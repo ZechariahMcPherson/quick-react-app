@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 
 
-class StarWars extends Component {
+class Starwars extends Component {
 
   constructor(props)
   {
@@ -21,17 +21,16 @@ class StarWars extends Component {
   render() {
     return (
       <div className="starwars-wrapper">
-
-
+        hi
       </div>
     );
   }
 }
 
-StarWars.PropTypes =
+Starwars.PropTypes =
 {
   key: PropTypes.number
 };
 
 
-export default StarWars;
+export default Starwars;
