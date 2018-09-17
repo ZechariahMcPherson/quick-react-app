@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import _ from 'underscore';
-
+import { getStarwarsData } from "../actions/homeActions";
 
 class Starwars extends Component {
 
@@ -18,6 +18,20 @@ class Starwars extends Component {
 
   }
 
+  componentWillRecieveProps(nextProps)
+  {
+    if(_.isNil(nextProps))
+    {
+      console.log(nextProps);
+    }
+  }
+
+  callSwampi()
+  {
+    this.props.dispatch(getStarwarsData);
+  }
+
+
   render() {
     return (
       <div className="starwars-wrapper">
@@ -27,7 +41,7 @@ class Starwars extends Component {
   }
 }
 
-Starwars.PropTypes =
+Starwars.propTypes =
 {
   key: PropTypes.number
 };

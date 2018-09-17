@@ -31,7 +31,7 @@ class Button extends Component {
   }
 }
 
-Button.PropTypes =
+Button.propTypes =
 {
   text: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,

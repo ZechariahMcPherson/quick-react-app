@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-//todo api error handling
+import _ from 'underscore';
 
 
 /*
@@ -8,17 +7,41 @@ import axios from 'axios';
   argsDict = {methodType: 'get/post', apiUrl: 'https://google.com', successText: 'GET_API_SUCCESS', failText: 'GET_API_FAILED', postData: {name: 'fred'}(optional param)}
 */
 
-function callApi(argsDict)
+/*
+  todo rewrite for handling missing or incorrect param
+  currently only handles happy path
+*/
+export default function api(argsDict)
 {
+
+  //enures that methodType is in lower case
+  const methodTypeFormated = argsDict['methodType'].toLowerCase();
+
+  let axiosSend =
+  ({
+    method: methodTypeFormated,
+
+    url: argsDict['apiUrl']
+  });
+
+  //if it is a post api data field is reqiured
+  if(!_.isUndefined(argsDict['postData']))
+  {
+    axiosSend['data'] = argsDict['postData'];
+  }
+
+
+  //beginning of error handling doesn't currently work
+  /*
 
   //enures that methodType is in lower case
   const methodTypeFormated = this.methodType.toLowerCase();
 
   let axiosSend =
   {
-    method: _.isUndefined(argsDict['postData']) ? throw new Error('\'postData\' param is required') : argsDict['postData'],
+    method: _.isUndefined(argsDict['postData']) ? throw ('\'postData\' param is required') : argsDict['postData'],
 
-    url: _.isUndefined(argsDict['apiUrl']) ? throw new Error('\'apiUrl\' param is required') : argsDict['apiUrl'],
+    url: _.isUndefined(argsDict['apiUrl']) ? throw ('\'apiUrl\' param is required') : argsDict['apiUrl']
   })
 
   if(!_.isUndefined(argsDict['postData']))
@@ -26,7 +49,9 @@ function callApi(argsDict)
     axiosSend['data'] = argsDict['postData'];
   }
 
+  */
 
-  axios(axiosSend);
+
+  return axios(axiosSend);
 
 }
