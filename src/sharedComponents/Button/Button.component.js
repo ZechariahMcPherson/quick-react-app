@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 
 import _ from 'underscore';
 
+import "./Button.css";
 
-class StarWars extends Component {
+class Button extends Component {
 
   constructor(props)
   {
     super(props);
 
     this.state({
+      text: this.props.text,
+      callback: this.props.callback,
       key: _.isNil(this.props.key) ? Math.random : this.props.key
     });
 
@@ -20,18 +23,21 @@ class StarWars extends Component {
 
   render() {
     return (
-      <div className="starwars-wrapper">
+      <div className="button-wrapper">
 
+        <input type="button" value={this.state.text} onClick={this.state.callback} />
 
       </div>
     );
   }
 }
 
-StarWars.PropTypes =
+Button.PropTypes =
 {
+  text: PropTypes.string.isRequired,
+  callback: PropTypes.func.isRequired,
   key: PropTypes.number
 };
 
 
-export default StarWars;
+export default Button;
