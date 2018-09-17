@@ -40,7 +40,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import rootReducer from "./reducers/homeComponentsReducer.js";
+import rootReducer from "./reducers/index.js";
 
 import App from "./App.js";
 

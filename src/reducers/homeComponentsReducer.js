@@ -17,7 +17,7 @@ export default function homeComponent(state = [], action) {
 }
 */
 
-export default function counter(state = 0, action) {
+export default function homeComponent(state = 0, action) {
   switch (action.type) {
     case 'GET_STARWARS_SUCCESSS':
     return({
