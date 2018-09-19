@@ -13,7 +13,6 @@ class Button extends Component {
 
     this.state = ({
       text: this.props.text,
-      callback: this.props.callback,
       key: _.isUndefined(this.props.key) ? Math.random : this.props.key
     });
 
@@ -21,10 +20,11 @@ class Button extends Component {
   }
 
   render() {
+
     return (
       <div className="button-wrapper">
 
-        <input type="button" value={this.state.text} onClick={ this.state.callback} />
+        <input type="button" value={this.state.text} onClick={this.props.callback}  />
 
       </div>
     );

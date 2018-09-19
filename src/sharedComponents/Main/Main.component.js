@@ -23,21 +23,21 @@ class Main extends Component {
       key: Math.random
     });
 
-    this.addStarWarsComponent = this.addStarWarsComponent.bind(this);
+    //this.addStarWarsFunc = this.addStarWarsComponent.bind(this);
   }
 
-  addStarWarsComponent()
+  addStarWarsComponent(value)
   {
     console.log('called addStarWarsComponent');
 
-    this.setState({showStarWars: true})
+    this.setState({showStarWars: value})
   }
 
   render() {
     return (
       <div className="main-wrapper">
-        <Button text="Call Starwars Api" callback={this.addStarWarsComponent} />
-        {this.state.showStarWars ? null : <StarWars />}
+        <Button text="Call Starwars Api" callback={this.addStarWarsComponent.bind(this)} />
+        {this.state.showStarWars ?  <StarWars /> : null}
 
       </div>
     );
