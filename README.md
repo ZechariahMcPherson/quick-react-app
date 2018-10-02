@@ -1,2 +1,2 @@
-# quick-react-app
-Creating a quick react redux example
+# react-redux-sandbox
+Made for playing around with react redux
