@@ -23,20 +23,20 @@ class Main extends Component {
       key: Math.random
     });
 
-    //this.addStarWarsFunc = this.addStarWarsComponent.bind(this);
+    this.addStarWarsComponent = this.addStarWarsComponent.bind(this);
   }
 
-  addStarWarsComponent(value)
+  addStarWarsComponent(shouldShowBool)
   {
     console.log('called addStarWarsComponent');
 
-    this.setState({showStarWars: value})
+    this.setState({showStarWars: shouldShowBool});
   }
 
   render() {
     return (
       <div className="main-wrapper">
-        <Button text="Call Starwars Api" callback={this.addStarWarsComponent.bind(this)} />
+        <Button text="Call Starwars Api" callback={this.addStarWarsComponent} />
         {this.state.showStarWars ?  <StarWars /> : null}
 
       </div>
@@ -46,6 +46,7 @@ class Main extends Component {
 
 Main.propTypes =
 {
+  showStarWars: PropTypes.bool,
   key: PropTypes.number
 };
 
